@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Recruiter {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  jobPosts  Job[]    @relation("RecruiterJobs")
+}
+
+model Applicant {
+  id            Int          @id @default(autoincrement())
+  name          String
+  email         String       @unique
+  password      String
+  resume        String?      // For AI Resume Review functionality (URL to the resume file)
+  resumeOriginalName String? // Original resume filename
+  bio           String?      // Bio of the applicant
+  skills        String[]     // Array of skills (PostgreSQL supports array types)
+  profilePhoto  String?      // Profile photo URL
+  applications  Application[] @relation("ApplicantApplications")
+  companyId     Int?         // Foreign key to a company if applicable
+  company       Company?     @relation(fields: [companyId], references: [id]) // Reference to Company model
+}
+
+model Job {
+  id          Int        @id @default(autoincrement())
+  companyname String     @default("Unknown") // Adding a default value
+  title       String
+  description String
+  location    String
+  salary      Int        @default(0)         // Adding a default value
+  recruiter   Recruiter  @relation(fields: [recruiterId], references: [id], name: "RecruiterJobs")
+  recruiterId Int
+  applicants  Application[] @relation("JobApplications")
+}
+
+model Application {
+  id          Int       @id @default(autoincrement())
+  status      String    // e.g., "Applied", "Shortlisted"
+  job         Job       @relation(fields: [jobId], references: [id], name: "JobApplications")
+  jobId       Int
+  applicant   Applicant  @relation(fields: [applicantId], references: [id], name: "ApplicantApplications")
+  applicantId Int
+
+  @@unique([applicantId, jobId])  // Ensures a unique application for each job by each applicant
+}
+
+
+model Company {
+  id         Int        @id @default(autoincrement())
+  name       String
+  applicants Applicant[] // One-to-many relation with Applicants
+}
