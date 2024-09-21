@@ -5,11 +5,11 @@ const {
     HarmBlockThreshold,
   } = require("@google/generative-ai");
   const ParseResume = require("./salaryPredictor.js");
-  const genAIInstances = [
+ const genAIInstances = [
     new GoogleGenerativeAI(process.env.API_KEY_1),
-    // new GoogleGenerativeAI(process.env.API_KEY_2),
-    // new GoogleGenerativeAI(process.env.API_KEY_3),
-    // new GoogleGenerativeAI(process.env.API_KEY_4),
+    new GoogleGenerativeAI(process.env.API_KEY_2),
+    new GoogleGenerativeAI(process.env.API_KEY_3),
+    new GoogleGenerativeAI(process.env.API_KEY_4),
     // new GoogleGenerativeAI(process.env.API_KEY_5),
     // new GoogleGenerativeAI(process.env.API_KEY_6),
     // new GoogleGenerativeAI(process.env.API_KEY_7),
