@@ -1,13 +1,13 @@
 
 
-# **SkillConnect - Job and Internship Platform**
+# **TalentTrack - AI-Powered Job and Internship Platform**
 
 **Team:** Hackmasters  
 **Hackathon:** HackCelestial 1.0 (Team ID: HC27)
 
 ## **Project Overview**
 
-SkillConnect is an AI-powered platform designed to connect technical students with tailored job and internship opportunities. It provides a seamless experience for both applicants and recruiters, enabling personalized job matching and streamlined communication.
+TalentTrack is an AI-driven platform designed to connect technical students with job and internship opportunities that match their skills and aspirations. Recruiters can leverage advanced AI-powered tools to efficiently filter candidates and communicate with them directly, making the hiring process seamless and effective.
 
 ## **Key Features**
 
@@ -20,6 +20,12 @@ SkillConnect is an AI-powered platform designed to connect technical students wi
 - **Job Postings:** Create detailed job postings and find the best candidates.
 - **AI Filtering:** Advanced algorithms help streamline the hiring process by filtering relevant candidates.
 - **Direct Communication:** Integrated chat system for recruiter-initiated communication with applicants.
+
+## **Screenshots **
+![WhatsApp Image 2024-09-23 at 23 46 20](https://github.com/user-attachments/assets/4e25c8f5-b153-4c51-9dfe-6c838fd126cf)
+
+![WhatsApp Image 2024-09-24 at 00 02 52](https://github.com/user-attachments/assets/059192d4-0134-4190-8e6b-94cf752abe3a)
+
 
 ## **Technical Stack**
 
@@ -47,7 +53,7 @@ SkillConnect is an AI-powered platform designed to connect technical students wi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/SkillConnect.git
+   git clone https://github.com/yourusername/TalentTrack.git
    ```
 2. Navigate into the project directory:
    ```bash
