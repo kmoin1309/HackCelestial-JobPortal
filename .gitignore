@@ -1,0 +1,3 @@
+# Ignore npm cache and config files
+.npm/
+.config/
